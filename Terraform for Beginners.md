@@ -43,24 +43,24 @@ A [Terraform Provider](https://www.terraform.io/docs/glossary#terraform-provider
 ## Configurations
 A Terraform [Configuration](https://www.terraform.io/docs/glossary#terraform-configuration) is a block of code that *declaratively* describes how your infrastructure should be configured. In it's very simplest form a Terraform run can consist of only a single Configuration. Here is a very simple example Configuration:
 
-  resource "null_resource" "test" {
-    provisioner "local-exec" {
-      command = "echo ${split("/", var.ecr_url)[0]}"
+    resource "null_resource" "test" {
+      provisioner "local-exec" {
+        command = "echo ${split("/", var.ecr_url)[0]}"
+      }
     }
-  }
 
 In this examle the Configuration consists of a Resource, but it just as easily could have been a call to a module:
 
-  module "rg" {
-    source                      = "./modules/resource_group"
-    rg                          = local.rg
-  }
+    module "rg" {
+      source                      = "./modules/resource_group"
+      rg                          = local.rg
+    }
 
 Or an 'output' block:
 
-  output "my_out" {
-    value  = "This is the output - user: ${local.data.admin_user}"
-  }
+    output "my_out" {
+      value  = "This is the output - user: ${local.data.admin_user}"
+    }
 
 ## Resources
 A Terraform [Resource](https://www.terraform.io/docs/glossary#resource) is a block that describes an infrastructure object. For example, you may have a "resource" that describes a virtual-machine in Azure. The resource would describe everything about that VM, like the number of CPU cores, amount of memory, disk size, and number of interfaces. Terraform will send that resource definition to the appropriate [Provider](https://www.terraform.io/docs/glossary#terraform-provider) so that the described object can be created.
@@ -82,7 +82,7 @@ A Terraform [Run](https://www.terraform.io/docs/glossary#run) consists of one or
 Terraform [Resources](https://www.terraform.io/docs/glossary#resource) are blocks of Infrastructure-as-Code (IaC) elements. These define what the deployment *should* be and leave it up to the Terraform logic and the provider to make happen. While several aspects of Terraform seem quite similar to a programming language, what you are actually "coding" is how things should be. When you run `terraform apply`, you are telling Terraform to make them that way.
 
 ## Variables
-[Variables](https://www.terraform.io/language/values/variables) are just that. They are provided to the various [Configurations](https://www.terraform.io/docs/glossary#terraform-configuration) in lieu of static values to allow for simpler description of what should be deployed. That said, Variables in Terraform are a source of frequent confusion and much gnashing of teeth. First, variables declared with the 'variable' 
+[Variables](https://www.terraform.io/language/values/variables) are just that. They are provided to the various [Configurations](https://www.terraform.io/docs/glossary#terraform-configuration) in lieu of static values to allow for simpler description of what should be deployed. That said, Variables in Terraform are a source of frequent confusion and much gnashing of teeth.
 
 There are two basic types of varibales: [Input Variables](https://www.terraform.io/language/values/variables) and [Local Values](https://www.terraform.io/language/values/locals).
 
