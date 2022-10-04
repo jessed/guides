@@ -1,10 +1,10 @@
 # Motivation
-I first started with Terraform because it was the tool AT&T was using to orchestrate public cloud operations. My motivation was to understand the tool they used in order to provide pre-generated deployment configurations that they would easily be able to drop into their environment. While pursuing that goal I discovered a tool that would allow me to completely recreate a full environment with a single command on the CLI. Replacing 30-60 minutes in a Web portal, or executing dozens of cloud-specific CLI commands, for every lab deployment was unbelievably useful; like writing a shell script for some process with 20 steps where each step requires 10-60 seconds to complete. Run a single command, go get a coffee, and come back 10 minutes later to a fully-deployed environment ready for actual work. Or in other words: *bottled awesome*.
+The most frustrating aspect of Terraform is the "Day One" learning curve. When first starting out most of the examples I found (by which I mean: every single one), seemed to assume that you understand the basic operation of Terraform and focused on the more complex use-cases. The problem with that is that I held certain misconceptions that none of those guides actually addressed. The most significant one was how I was supposed to download the package (provider) to interact with a specific service?". The answer is "You don't", but all of the guides I found seemed to assume that knowledge and didn't address the topic. In hindsight I understand why, but it's been over two years and I still remember the intense frustration of that first day working with Terraform (TF).
 
-The most frustrating aspect of Terraform is the "Day One" learning curve. Most examples (read: every single one I found), seem to assume that you understand the basic operation of Terraform and end up focusing on the more complex use-cases. My motivation in writing this guide is to introduce you to those Day One concepts in simple bite-size chunks. Ideally this whole tutorial will require less than an hour of your time, after which you can move on to the more complex guides that show you how to use Terraform to make your life easier.
+This guide is intended to answer those very basic beginner questions, as well as walk you through the creation of your first (extremely) simple Terraform Run so you can see how the various pieces for together. 
 
 # Organization
-This guide is broken into several small parts intended to let you skip the frustration of discovering them yourself. It definitely does not replace the [Terraform Documentation](https://www.terraform.io/intro), but as you'll discover if you click the link, this will reduce the time you need to "internalize" how Terraform works.
+This guide is broken into several small parts intended to let you skip the frustration of discovering them yourself. It definitely does not replace the [Terraform Documentation](https://www.terraform.io/intro), but as you'll discover if you click the link, this guide will reduce the time you need to "internalize" how Terraform works.
 
 # Terrform
 As stated, this guide is a simple introduction to [Terraform](https://www.terraform.io/intro), and we will be going over several of the basic elements of a basic Terraform deployment. Those elements are:
@@ -95,13 +95,14 @@ There are two basic types of varibales: [Input Variables](https://www.terraform.
 ### Variable Usage
 Here is a simple example illustrating the defintion of both:
 
-> variable "prefix" { default = "my_prefix" }
-> 
-> locals { vnet_name = "${var.prefix}-vnet" }
+    variable "prefix" { default = "my_prefix" }
+    locals { vnet_name = "${var.prefix}-vnet" }
 
-The variable "prefix" would contain the value *my_prefix*, and the local value "vnet_name" would contain the value *my_prefix-vnet*. However, you would *not* be able to define input variable that leverage the existing value of the *prefix* variable. 
+The variable "prefix" would contain the value *my_prefix*, and the local value "vnet_name" would contain the value *my_prefix-vnet*. However, you would *not* be able to define input variable that leverage the existing value of the *prefix* variable.
 
-### Variable Definitions
+> Tip: All Input variable names are referenced using the 'var.' prefix, and all local values are referenced using the 'local.' prefix.
+
+### Defining Variables
 The number of variables in a moderately complex Terraform Configuration can be quite large. For this reason there are several methods of breaking up your variables into different files. The benefit of this approach is that you can isolate the variables that apply to one group of objects in their own file, making it easier to find them if/when you decide to change something.
 
 By default Terraform will source certain files for variable definitions:
@@ -125,17 +126,13 @@ The names of variables defined in *.tfvars or *.auto.tfvars files must be pre-de
 
 **vars.tf**
 
-`
-variable "bigip"   {}
-`
+    variable "bigip"   {}
 
 **v_bigip.auto.tfvars**
 
-`
-bigip = {
-  name   = "my_ltm_01"
-}
-`
+    bigip = {
+      name   = "my_ltm_01"
+    }
 
 Terraform would recognize a variable called "bigip" containing a nested variable called "use_paygo" with a string value of "my_ltm_01". If the placeholder variable is not present the variable(s) within the v_bigip.auto.tfvars file would not be included. You would also get a runtime error when Terraform attempts to import the variables define in the "v_bigip.auto.tfvars" file.
 
@@ -163,3 +160,4 @@ For example, if you deployed a BIG-IP and a server in a previous 'terraform appl
 [terraform destroy](https://www.terraform.io/cli/commands/destroy) is used to destroy/delete resources that have been deployed. The 'destroy' command will use the terraform.state file to remove objects in the opposite order of their deployment. The intent is to remove resources that have dependencies on other objects before attempting to remove those other objects. This process does work quite well, thoough it is not uncommon for an object in a public cloud to be 'marked for deletion' without having actually been deleted when Terraform attempts to delete the object it is dependent on. In these cases the 'destroy' operation will fail and you will need to run 'terraform destroy' again.
 
 The scenario above occurs frequently enough that when dealing with certain public clouds I start out by running 'terraform destroy --auto-approve' three times, separated by semicolons so that the second and third calls will be occur immediately. Calling 'terraform destroy' when nothing is deployed doesn't cause problems because the 'destroy' command updates the 'terraform.state' file as each resource is destroyed, so subsequent calls only act on resources that are still deployed.
+
