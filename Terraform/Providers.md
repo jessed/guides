@@ -1,9 +1,9 @@
 # Providers
 
 ## Overview
-A [Terraform Provider](https://www.terraform.io/docs/glossary#terraform-provider) is a plugin that Terraform calls in order to communicate with the service or resource being configured. For example, in order to configure Azure resources Terraform uses the [azurerm](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) provider. Providers are *usually* written by the organization that provides the product being configured, though that is not always the case. For example, the (BIG-IP)[https://registry.terraform.io/providers/F5Networks/bigip/1.15.2] is provided by F5, but the Azure provider is provided directly by Hashicorp (the same company that created Terraform).
+A [Terraform Provider](https://www.terraform.io/docs/glossary#terraform-provider) is a plugin that Terraform calls in order to communicate with the service or resource being configured. For example, in order to configure Azure resources Terraform uses the [azurerm](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) provider. Providers are *usually* written by the organization that provides the product being configured, though that is not always the case. For example, the [BIG-IP](https://registry.terraform.io/providers/F5Networks/bigip/1.15.2) is provided by F5, but the Azure provider is provided directly by Hashicorp (the same company that created Terraform).
 
-The provider(s) required for the Terraform Run are identified by Terraform when you run a `terraform init`, and are **automatically** downloaded. There are a two parts to provider configuration. The first declares that the Provider is required, and the second is the actual Provider configuration. 
+The provider(s) required for the Terraform Run are identified by Terraform when you run a `terraform init`, and are *automatically* downloaded. There are a two parts to provider configuration. The first declares that the Provider is required, and the second is the actual Provider configuration. 
 
 Here is an example of the Provider declaration:
 ### Provider Declaration
@@ -16,7 +16,7 @@ Here is an example of the Provider declaration:
 The 'terraform' block is not limited on only one Provider; more can be defined depending on what your Terraform Run requires. Here are a few example Provider configurations:
 
 ### Azure
-The **Provider** configuration blocks define changes to the default provider behavior. Even without any changes each provider must still have a configuration block. Here is a default configuration block for the Azure Provider:
+The *Provider* configuration blocks define changes to the default provider behavior. Even without any changes each provider must still have a configuration block. Here is a default configuration block for the Azure Provider:
 
     provider "azurerm" { }
 
