@@ -9,7 +9,7 @@ This guide is broken into several small parts intended to let you skip the frust
 # Terrform
 As stated, this guide is a simple introduction to [Terraform](https://www.terraform.io/intro), and we will be going over several of the basic elements of a basic Terraform deployment. Those elements are:
 1. tl;dr: Quick Start
-2. Providers
+2. [Providers](https://github.com/jessed/guides/blob/main/Terraform/Providers.md)
 3. Configurations
 4. Resources
 5. Modules
