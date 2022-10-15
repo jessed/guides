@@ -4,7 +4,7 @@ The most frustrating aspect of Terraform is the "Day One" learning curve. When f
 This guide is intended to answer those very basic beginner questions, as well as walk you through the creation of your first (extremely) simple Terraform Run so you can see how the various pieces for together. 
 
 # Organization
-This guide is broken into several small parts intended to let you skip the frustration of discovering them yourself. It definitely does not replace the [Terraform Documentation](https://www.terraform.io/intro), but as you'll discover if you click the link, this guide will reduce the time you need to "internalize" how Terraform works.
+This guide is broken into several small parts intended to let you skip the frustration of discovering them yourself. It definitely does not replace the [Terraform Documentation](https://www.terraform.io/intro), but as you'll discover if you click the link, this guide will reduce the time you need to "internalize" how to use Terraform.
 
 # Terrform
 As stated, this guide is a simple introduction to [Terraform](https://www.terraform.io/intro), and we will be going over several of the basic elements of a basic Terraform deployment. Those elements are:
@@ -17,7 +17,7 @@ As stated, this guide is a simple introduction to [Terraform](https://www.terraf
 7. Variables
 8. Initialization
 9. Execution: Plan, Apply, Destroy
-10. Summary
+10. Example #1
 
 ## tl;dr: Quick Start
 1. Write your Terraform code
@@ -49,7 +49,7 @@ A Terraform [Configuration](https://www.terraform.io/docs/glossary#terraform-con
       }
     }
 
-In this examle the Configuration consists of a Resource, but it just as easily could have been a call to a module:
+In this examle the Configuration consists of a Resource, but it just as easily could have been a call to a module, as shown here:
 
     module "rg" {
       source                      = "./modules/resource_group"
@@ -61,6 +61,14 @@ Or an 'output' block:
     output "my_out" {
       value  = "This is the output - user: ${local.data.admin_user}"
     }
+
+Even variables (see below) are a type of configuration and defined in the same way:
+
+    variable "prefix" {
+      default = "my_prefix"
+    }
+
+
 
 ## Resources
 A Terraform [Resource](https://www.terraform.io/docs/glossary#resource) is a block that describes an infrastructure object. For example, you may have a "resource" that describes a virtual-machine in Azure. The resource would describe everything about that VM, like the number of CPU cores, amount of memory, disk size, and number of interfaces. Terraform will send that resource definition to the appropriate [Provider](https://www.terraform.io/docs/glossary#terraform-provider) so that the described object can be created.
@@ -160,4 +168,5 @@ For example, if you deployed a BIG-IP and a server in a previous 'terraform appl
 [terraform destroy](https://www.terraform.io/cli/commands/destroy) is used to destroy/delete resources that have been deployed. The 'destroy' command will use the terraform.state file to remove objects in the opposite order of their deployment. The intent is to remove resources that have dependencies on other objects before attempting to remove those other objects. This process does work quite well, thoough it is not uncommon for an object in a public cloud to be 'marked for deletion' without having actually been deleted when Terraform attempts to delete the object it is dependent on. In these cases the 'destroy' operation will fail and you will need to run 'terraform destroy' again.
 
 The scenario above occurs frequently enough that when dealing with certain public clouds I start out by running 'terraform destroy --auto-approve' three times, separated by semicolons so that the second and third calls will be occur immediately. Calling 'terraform destroy' when nothing is deployed doesn't cause problems because the 'destroy' command updates the 'terraform.state' file as each resource is destroyed, so subsequent calls only act on resources that are still deployed.
+
 
