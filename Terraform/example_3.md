@@ -34,63 +34,75 @@ The ./modules/resource_group/variables.tf file defines the input variables requi
 
 ***Note***: Additional variables can be provided to the module when it is called even without being defined in the variables.tf file; however, any additional variables will not be available for use. They simply don't cause a syntax error.
 
-## ./vars.tf
-    variable "prefix"     { default = "my_lab" }
-    variable "location"   { default = "westus2" }
+### ./vars.tf
+```
+variable "prefix"     { default = "my_lab" }
+variable "location"   { default = "westus2" }
+```
 
-## ./main.tf
-    terraform {
-      required_providers {
-        azurerm = { version = "~> 3.27.0" }
-      }
-    }
-    
-    provider "azurerm" {
-      features {}
-    }
-    
-    module "rg1" {
-      source                = "./modules/resource_group"
-      prefix                = var.prefix
-      location              = var.location
-    }
-    module "rg2" {
-      source                = "./modules/resource_group"
-      prefix                = var.prefix
-      location              = var.location
+### ./main.tf
+```
+terraform {
+  required_providers {
+    azurerm = { version = "~> 3.27.0" }
+  }
+}
 
-## ./outputs.tf
-    output "rg1" {
-      description = "Resource group details"
-      value = {
-        rg_name     = module.rg1.out.name
-        rg_location = module.rg1.out.location
-        rg_id       = module.rg1.out.id
-      }
+provider "azurerm" {
+  features {}
+}
 
-    output "rg2" {
-      description = "Resource group details"
-      value = {
-        rg_name     = module.rg2.out.name
-        rg_location = module.rg2.out.location
-        rg_id       = module.rg2.out.id
-      }
+module "rg1" {
+  source                = "./modules/resource_group"
+  prefix                = var.prefix
+  location              = var.location
+}
+module "rg2" {
+  source                = "./modules/resource_group"
+  prefix                = var.prefix
+  location              = var.location
+```
 
-## ./modules/resource_group/variables.tf
-		variable prefix     {}
-		variable location   {}
+### ./outputs.tf
+```
+output "rg1" {
+  description = "Resource group details"
+  value = {
+    rg_name     = module.rg1.out.name
+    rg_location = module.rg1.out.location
+    rg_id       = module.rg1.out.id
+  }
+
+output "rg2" {
+  description = "Resource group details"
+  value = {
+    rg_name     = module.rg2.out.name
+    rg_location = module.rg2.out.location
+    rg_id       = module.rg2.out.id
+  }
+```
+
+### ./modules/resource_group/variables.tf
+```
+variable prefix     {}
+variable location   {}
+```
 
 The module variables.tf file defines the variables required by the module. These variables *must* be provided when the module is called. If variables are defined in the module variables.tf file but not provided when the module is called an error will be reported when you run terraform [plan|apply].
 
-## ./modules/resource_group/main.tf
-    resource "azurerm_resource_group" "rg" {
-      name      = var.prefix
-      location  = var.location
-    }
+### ./modules/resource_group/main.tf
+```
+resource "azurerm_resource_group" "rg" {
+  name      = var.prefix
+  location  = var.location
+}
+```
 
 The module main.tf file defines the actions that will be taken by the module. The syntax is identical to the syntax defined in the primary main.tf; however, the only variables available are those defined in the module variables.tf file.
 
-## ./modules/resource_group/outputs.tf
-		output "out" { value = azurerm_resource_group.rg }
+### ./modules/resource_group/outputs.tf
+```
+output "out" { value = azurerm_resource_group.rg }
+```
 
 The module outputs.tf file sends the outputs back to the main terraform execution. These outputs can then be used as input variables to other configuration blocks, including other modules. They can also be used in output blocks defined in the main directory to print the values after the Terraform Run completes. One very common example of this is printing the IP addresses of virtual-machines instantiated by the Terraform Run.
