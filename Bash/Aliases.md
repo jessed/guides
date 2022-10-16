@@ -89,3 +89,46 @@ alias sadu='sudo apt-get dist-upgrade'
 alias dqry="dpkg-query -W -f='\${Package;-35}\${Version;-30}\${Status;-24}\n'"
 ```
 
+### Terraform aliases
+```
+alias tf="terraform"
+alias tfi="terraform init"
+alias tfaa="terraform apply -auto-approve"
+alias tfda="terraform destroy -auto-approve"
+alias tfp="terraform plan"
+```
+
+### Kubernetes aliases
+```
+alias k="kubectl"
+alias kg="kubectl get"
+alias ka="kubectl apply"
+alias kc="kubectl create"
+alias kd="kubectl delete"
+alias kgp="kubectl get pods"
+alias kgs="kubectl get service"
+alias kgn="kubectl get nodes"
+alias kdesc="kubectl describe"
+alias kcuc="kubectl config use-context"
+```
+
+### Docker / Podman aliases
+```
+# Docker
+alias d="docker"
+alias dp="docker ps"
+alias ds="docker start"
+alias dc="docker container"
+alias dcl="docker container list"
+alias dcla="docker container list --all"
+alias dils="docker image ls"
+
+# Podman
+alias pm="podman"
+alias pms="podman ps"
+alias pmc="podman container"
+alias pmcl="podman container list"
+alias pmcla="podman container list --all"
+alias pmils="podman image ls"
+```
+
