@@ -17,10 +17,11 @@ As stated, this guide is a simple introduction to [Terraform](https://www.terraf
 7. [Variables](https://github.com/jessed/guides/blob/main/Terraform/Variables.md)
 8. [Initialization](https://github.com/jessed/guides/blob/main/Terraform/Initialization.md)
 9. [Execution: Plan, Apply, Destroy](https://github.com/jessed/guides/blob/main/Terraform/Execution.md)
-10. [Example 1](#Example-1): Variables, local values, null_resource resource, and outputs
-11. [Example 2](#Example-2): Variables, local values with embedded values, outputs
-12. [Example 3](#Example-3): Module creation and usage, module outputs
-13. [Example 4](#Example-4): Module usage with ternary conditional and 'count' meta-argument
+10. [Tips and Tricks](https://github.com/jessed/guides/blob/main/Terraform/Tips_and_tricks.md)
+11. [Example 1](#Example-1): Variables, local values, null_resource resource, and outputs
+12. [Example 2](#Example-2): Variables, local values with embedded values, outputs
+13. [Example 3](#Example-3): Module creation and usage, module outputs
+14. [Example 4](#Example-4): Module usage with ternary conditional and 'count' meta-argument
 
 ## tl;dr Quick Start
 1. Write your Terraform code
