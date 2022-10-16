@@ -3,7 +3,9 @@ The following example illustrates the Terraform code to:
 1. Define a variable called 'lab_prefix'
 2. Create several local values containing embedded values, many of which are created using the value of the 'lab_prefix' variable.
 3. Print the values of the various local values using output blocks.
-    
+
+***Note***: Notice the use of the [format](https://www.terraform.io/language/functions/format) function to build a dynamic local value using the variable name.
+
     variable "lab_prefix"       { default = "nginx" }
     
     locals {
@@ -41,9 +43,10 @@ The following example illustrates the Terraform code to:
     }
 
 
-output "lab"  { value = var.lab_prefix }
-output "rg"   { value = local.rg}
-output "vnet" { value = local.vnet}
-output "nsg"  { value = local.nsg}
-output "law"  { value = local.log_analytics }
-output "lb" { value = local.lb }
+    output "lab"  { value = var.lab_prefix }
+    output "rg"   { value = local.rg}
+    output "vnet" { value = local.vnet}
+    output "nsg"  { value = local.nsg}
+    output "law"  { value = local.log_analytics }
+    output "lb" { value = local.lb }
+

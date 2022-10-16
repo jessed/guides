@@ -12,7 +12,7 @@ locals {
   nsg = {                   # Network security group
     name                    = format("%s-nsg", var.lab_prefix)
     src_addrs               = ["24.16.243.5","173.59.5.20","20.42.154.161", "67.168.116.128"]
-    src_addrs               = ["172.16.0.0/16", "172.17.0.0/16", "192.168.0.0/24"]
+    src_addrs               = ["10.1.0.0/16", "172.17.0.0/16", "192.168.0.0/24"]
     dst_ports               = ["22","443", "8443"]
   }
   log_analytics = {         # Log Analytics Workspace
@@ -35,8 +35,8 @@ locals {
 }
 
 
-output "rg" { value = local.rg}
+output "rg"   { value = local.rg}
 output "vnet" { value = local.vnet}
-output "nsg" { value = local.nsg}
-output "law" { value = local.log_analytics }
-output "lb" { value = local.lb }
+output "nsg"  { value = local.nsg}
+output "law"  { value = local.log_analytics }
+output "lb"   { value = local.lb }

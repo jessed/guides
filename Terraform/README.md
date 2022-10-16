@@ -44,10 +44,14 @@ As stated, this guide is a simple introduction to [Terraform](https://www.terraf
 * Create *null_resource* to call a bash command
 * Create Output blocks to print the values of the variable and local value
 
-### [Example 2]():
+### [Example 2](https://github.com/jessed/guides/blob/main/Terraform/example_2.md)
 * Create variable
 * Create local values containing several embedded values using the variable to build the names
 * Create Output blocks to print the variable and local values
 
-### [Example 3]():
-### [Example 4]():
+### [Example 3](https://github.com/jessed/guides/blob/main/Terraform/example_3.md)
+* Create and run a module that creates an Azure resource-group
+* Create output blocks that print the values of the module
+
+### [Example 4](https://github.com/jessed/guides/blob/main/Terraform/example_4.md)
+* 
