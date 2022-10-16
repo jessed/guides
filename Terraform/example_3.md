@@ -15,10 +15,12 @@ The file and directory structure typically follows the pattern shown here:
     | vars.tf
     | outputs.tf
     |--modules
+    |
     |  |--resource_group
     |  |   main.tf
     |  |   variables.tf
     |  |   outputs.tf
+    |
     |  |--module1
     |  |   main.tf
     |  |   variables.tf
