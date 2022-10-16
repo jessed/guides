@@ -38,7 +38,16 @@ As stated, this guide is a simple introduction to [Terraform](https://www.terraf
    * Reverses the order of operations determined at the time of deployement
 
 ## Examples
-### [Example 1](https://github.com/jessed/guides/blob/main/Terraform/example_1.md):
+### [Example 1](https://github.com/jessed/guides/blob/main/Terraform/example_1.md)
+* Create variable
+* Create local value using variable value
+* Create *null_resource* to call a bash command
+* Create Output blocks to print the values of the variable and local value
+
 ### [Example 2]():
+* Create variable
+* Create local values containing several embedded values using the variable to build the names
+* Create Output blocks to print the variable and local values
+
 ### [Example 3]():
 ### [Example 4]():
