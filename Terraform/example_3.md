@@ -12,20 +12,14 @@ Typically Terraform Runs use separate files for input variables, configuration b
 The files and directory structure typically follow this pattern:
 ```
 .
-| main.tf
-| vars.tf
-| outputs.tf
-|--modules
-|
-|  |--resource_group
-|  |   main.tf
-|  |   variables.tf
-|  |   outputs.tf
-|
-|  |--module1
-|  |   main.tf
-|  |   variables.tf
-|  |   outputs.tf
++-- main.tf
++-- vars.tf
++-- outputs.tf
++-- modules
+|   +-- resource_group
+|      +-- main.tf
+|      +-- variables.tf
+|      +- -outputs.tf
 ```
 
 In this example we are creating a single module called *resource_group*. We are calling the *resource_group* module to create an Azure resource-group. Creating a resource-group in Azure reuqires a couple variables, specifically, a name and a location. These variables are passed to the module when it is called using variable assignments specified in *main.tf*. Those variables are also defined in the *variables.tf* file located within the module sub-directory.
