@@ -33,12 +33,14 @@ In this example we are creating a single module called *resource_group*. We are 
 The ./modules/resource_group/variables.tf file defines the input variables required by the module. All of the variables defined in the modules *variables.tf* file must be provided when the module is called from main.tf. If a variable is defined in the ./modules/*module*/variables.tf file and it is *not* provided when the module is called you will receive an error when running terraform [plan|apply].
 
 ***Note***: Additional variables can be provided to the module when it is called even without being defined in the variables.tf file; however, any additional variables will not be available for use. They simply don't cause a syntax error.
+<br/>
 
 ### ./vars.tf
 ```
 variable "prefix"     { default = "my_lab" }
 variable "location"   { default = "westus2" }
 ```
+<br/>
 
 ### ./main.tf
 ```
@@ -62,6 +64,7 @@ module "rg2" {
   prefix                = var.prefix
   location              = var.location
 ```
+<br/>
 
 ### ./outputs.tf
 ```
@@ -81,14 +84,15 @@ output "rg2" {
     rg_id       = module.rg2.out.id
   }
 ```
+<br/>
 
 ### ./modules/resource_group/variables.tf
 ```
 variable prefix     {}
 variable location   {}
 ```
-
 The module variables.tf file defines the variables required by the module. These variables *must* be provided when the module is called. If variables are defined in the module variables.tf file but not provided when the module is called an error will be reported when you run terraform [plan|apply].
+<br/>
 
 ### ./modules/resource_group/main.tf
 ```
@@ -97,12 +101,11 @@ resource "azurerm_resource_group" "rg" {
   location  = var.location
 }
 ```
-
 The module main.tf file defines the actions that will be taken by the module. The syntax is identical to the syntax defined in the primary main.tf; however, the only variables available are those defined in the module variables.tf file.
+<br/>
 
 ### ./modules/resource_group/outputs.tf
 ```
 output "out" { value = azurerm_resource_group.rg }
 ```
-
 The module outputs.tf file sends the outputs back to the main terraform execution. These outputs can then be used as input variables to other configuration blocks, including other modules. They can also be used in output blocks defined in the main directory to print the values after the Terraform Run completes. One very common example of this is printing the IP addresses of virtual-machines instantiated by the Terraform Run.
