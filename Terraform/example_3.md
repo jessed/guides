@@ -1,30 +1,31 @@
 # Example #3 - module creation and usage
-**NOTE**: Executing this module will create an Azure Resource-Group
+**NOTE**: In order to execute this example you must have access to the Azure CLI and it must be authenticated to work with Azure.
+**NOTE**: This example will create two Azure Resource-Groups called 'my_lab-1-rg' and 'my_lab-2-rg'.
 
 The following example illustrates the Terraform code:
 1. Usage of the 'vars.tf', 'outputs.tf', and 'main.tf' as separate files
 2. Usage of the Azure provider
 3. Creation and usage of a module
 
-Typically Terraform Runs use separate files for input variables, configuration blocks, and output blocks. Modules are defined in a sub-directories beneath the main Terraform directory. That directory structure, as well as the separate files, are demonstrated in this example.
+Typically Terraform Runs use separate files for input variables, configuration blocks, and output blocks. Modules are defined in a sub-directories beneath the main Terraform directory. That directory structure, as well as the separate files, are illustrated here:
 
-The file and directory structure typically follows the pattern shown here:
+The files and directory structure typically follow this pattern:
 ```
-    .
-    | main.tf
-    | vars.tf
-    | outputs.tf
-    |--modules
-    |
-    |  |--resource_group
-    |  |   main.tf
-    |  |   variables.tf
-    |  |   outputs.tf
-    |
-    |  |--module1
-    |  |   main.tf
-    |  |   variables.tf
-    |  |   outputs.tf
+.
+| main.tf
+| vars.tf
+| outputs.tf
+|--modules
+|
+|  |--resource_group
+|  |   main.tf
+|  |   variables.tf
+|  |   outputs.tf
+|
+|  |--module1
+|  |   main.tf
+|  |   variables.tf
+|  |   outputs.tf
 ```
 
 In this example we are creating a single module called *resource_group*. We are calling the *resource_group* module to create an Azure resource-group. Creating a resource-group in Azure reuqires a couple variables, specifically, a name and a location. These variables are passed to the module when it is called using variable assignments specified in *main.tf*. Those variables are also defined in the *variables.tf* file located within the module sub-directory.
@@ -48,21 +49,32 @@ The ./modules/resource_group/variables.tf file defines the input variables requi
       features {}
     }
     
-    module "rg" {
+    module "rg1" {
       source                = "./modules/resource_group"
       prefix                = var.prefix
       location              = var.location
     }
+    module "rg2" {
+      source                = "./modules/resource_group"
+      prefix                = var.prefix
+      location              = var.location
 
 ## ./outputs.tf
-    output "rg" {
+    output "rg1" {
       description = "Resource group details"
       value = {
-        rg_name     = module.rg.out.name
-        rg_location = module.rg.out.location
-        rg_id       = module.rg.out.id
+        rg_name     = module.rg1.out.name
+        rg_location = module.rg1.out.location
+        rg_id       = module.rg1.out.id
       }
-    
+
+    output "rg2" {
+      description = "Resource group details"
+      value = {
+        rg_name     = module.rg2.out.name
+        rg_location = module.rg2.out.location
+        rg_id       = module.rg2.out.id
+      }
 
 ## ./modules/resource_group/variables.tf
 		variable prefix     {}
