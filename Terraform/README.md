@@ -17,7 +17,9 @@ As stated, this guide is a simple introduction to [Terraform](https://www.terraf
 7. [Variables](https://github.com/jessed/guides/blob/main/Terraform/Variables.md)
 8. [Initialization](https://github.com/jessed/guides/blob/main/Terraform/Initialization.md)
 9. [Execution: Plan, Apply, Destroy](https://github.com/jessed/guides/blob/main/Terraform/Execution.md)
-10. Examples
+10. [Example 1](#Example-1): Variables, local values, null_resource resource, and outputs
+11. [Example 2](#Example-2): Variables, local values with embedded values, outputs
+12. [Example 3](#Example-3): Module creation and usage, module outputs
 
 ## tl;dr: Quick Start
 1. Write your Terraform code
