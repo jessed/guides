@@ -63,6 +63,7 @@ module "rg2" {
   source                = "./modules/resource_group"
   prefix                = var.prefix
   location              = var.location
+}
 ```
 <br/>
 

@@ -8,7 +8,7 @@ This guide is broken into several small parts intended to let you skip the frust
 
 # Terrform
 As stated, this guide is a simple introduction to [Terraform](https://www.terraform.io/intro), and we will be going over several of the basic elements of a basic Terraform deployment. Those elements are:
-1. tl;dr: Quick Start
+1. [tl;dr Quick Start](#tl;dr-Quick-Start)
 2. [Providers](https://github.com/jessed/guides/blob/main/Terraform/Providers.md)
 3. [Configurations](https://github.com/jessed/guides/blob/main/Terraform/Configurations.md)
 4. [Resources](https://github.com/jessed/guides/blob/main/Terraform/Resources.md)
@@ -20,10 +20,11 @@ As stated, this guide is a simple introduction to [Terraform](https://www.terraf
 10. [Example 1](#Example-1): Variables, local values, null_resource resource, and outputs
 11. [Example 2](#Example-2): Variables, local values with embedded values, outputs
 12. [Example 3](#Example-3): Module creation and usage, module outputs
+13. [Example 4](#Example-4): Module usage with ternary conditional and 'count' meta-argument
 
-## tl;dr: Quick Start
+## tl;dr Quick Start
 1. Write your Terraform code
-   * I describe this somewhat below; however, if you are actually starting with this know that I have experienced your pain and have no sympathy. Helping you avoid that pain is the whole purpose of this guide.
+   * I describe this below; however, if you are actually starting with this know that I have experienced your pain and have no sympathy. Helping you avoid that pain is the whole purpose of this guide.
 2. `terraform init`
    * Initialize your TF environment, which includes a basic syntax check.
    * NOTE: This will download the required providers and enumerate your modules.
@@ -31,7 +32,7 @@ As stated, this guide is a simple introduction to [Terraform](https://www.terraf
    * More thorough syntax check
    * Determine order of operations based on dependencies
    * Logic check - checks for unmet dependencies, circular logic, missing variables, etc...
-4. `terraform apply`
+4. `terraform apply [--auto-approve]`
    * Deploy the configuration.
    * Communication/authentication/authorization issues will be caught at this stage.
    * Failures will *not* be rolled back automatically.
@@ -56,4 +57,4 @@ As stated, this guide is a simple introduction to [Terraform](https://www.terraf
 * Create output blocks that print the values of the module
 
 ### [Example 4](https://github.com/jessed/guides/blob/main/Terraform/example_4.md)
-* 
+* Example usage of the ternary conditional and the [count](https://developer.hashicorp.com/terraform/language/meta-arguments/count) meta-argument
