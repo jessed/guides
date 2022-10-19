@@ -10,18 +10,19 @@ This guide is broken into several small parts intended to let you skip the frust
 As stated, this guide is a simple introduction to [Terraform](https://www.terraform.io/intro), and we will be going over several of the basic elements of a basic Terraform deployment. Those elements are:
 1. [tl;dr Quick Start](#tl;dr-Quick-Start)
 2. [Providers](https://github.com/jessed/guides/blob/main/Terraform/Providers.md)
-3. [Configurations](https://github.com/jessed/guides/blob/main/Terraform/Configurations.md)
-4. [Resources](https://github.com/jessed/guides/blob/main/Terraform/Resources.md)
-5. [Modules](https://github.com/jessed/guides/blob/main/Terraform/Modules.md)
-6. [Runs](https://github.com/jessed/guides/blob/main/Terraform/Runs.md)
-7. [Variables](https://github.com/jessed/guides/blob/main/Terraform/Variables.md)
-8. [Initialization](https://github.com/jessed/guides/blob/main/Terraform/Initialization.md)
-9. [Execution: Plan, Apply, Destroy](https://github.com/jessed/guides/blob/main/Terraform/Execution.md)
-10. [Tips and Tricks](https://github.com/jessed/guides/blob/main/Terraform/Tips_and_tricks.md)
-11. [Example 1](#Example-1): Variables, local values, null_resource resource, and outputs
-12. [Example 2](#Example-2): Variables, local values with embedded values, outputs
-13. [Example 3](#Example-3): Module creation and usage, module outputs
-14. [Example 4](#Example-4): Module usage with ternary conditional and 'count' meta-argument
+3. [Registry](https://github.com/jessed/guides/blob/main/Terraform/Registry.md)
+4. [Configurations](https://github.com/jessed/guides/blob/main/Terraform/Configurations.md)
+5. [Resources](https://github.com/jessed/guides/blob/main/Terraform/Resources.md)
+6. [Modules](https://github.com/jessed/guides/blob/main/Terraform/Modules.md)
+7. [Runs](https://github.com/jessed/guides/blob/main/Terraform/Runs.md)
+8. [Variables](https://github.com/jessed/guides/blob/main/Terraform/Variables.md)
+9. [Initialization](https://github.com/jessed/guides/blob/main/Terraform/Initialization.md)
+10. [Execution: Plan, Apply, Destroy](https://github.com/jessed/guides/blob/main/Terraform/Execution.md)
+11. [Tips and Tricks](https://github.com/jessed/guides/blob/main/Terraform/Tips_and_tricks.md)
+12. [Example 1](#Example-1): Variables, local values, null_resource resource, and outputs
+13. [Example 2](#Example-2): Variables, local values with embedded values, outputs
+14. [Example 3](#Example-3): Module creation and usage, module outputs
+15. [Example 4](#Example-4): Module usage with ternary conditional and 'count' meta-argument
 
 ## tl;dr Quick Start
 1. Write your Terraform code
