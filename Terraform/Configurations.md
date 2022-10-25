@@ -30,3 +30,7 @@ Even a [Variable](https://www.terraform.io/language/values/variables) are a type
 
 
 Configuration blocks can become quite complex, as you'll see as soon as you take a look at the configuration for deploying a VM into any cloud. I'm not providing an example of a complex configuration block because that isn't a Day-1 topic, but if you are curious here is the documentation for the [azurerm_linux_virtual_machine](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine) resource in Azure. This example is just about as simple as it gets for deploying a VM in Azure.
+
+[BACK](https://github.com/jessed/guides/blob/main/Terraform/Registry.md)
+
+[NEXT](https://github.com/jessed/guides/blob/main/Terraform/Resources.md)

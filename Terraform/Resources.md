@@ -18,3 +18,9 @@ Resources are easily the most common element of Terraform configuration object. 
 
 **Note**: If you review that documentation you'll notice that the example near the top starts with the creation of the a virtual-network, then a subnet, then an interface, and *finally* an example of the resource we are actually talking about. This is a fairly common theme in Terraform documentation. It is very common for Terraform examples to include every other resource required by the object in question.
 
+
+[BACK](https://github.com/jessed/guides/blob/main/Terraform/Configurations.md)
+
+[NEXT](https://github.com/jessed/guides/blob/main/Terraform/Modules.md)
+
+[HOME](https://github.com/jessed/guides/blob/main/Terraform/README.md)

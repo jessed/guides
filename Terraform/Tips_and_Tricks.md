@@ -66,3 +66,8 @@ resource "azurerm_resource_group" "rg" {
 Examining the state of an object in Terraform is particularly useful when you need to use an attribute of an object that isn't well defined in the resource documentation. This doesn't come up often, but when it does being able to examine the object to see what attributes you can access is extremely helpful. Any resource attribute you can see in the terraform.state file is usable within Terraform code.
 
 
+[BACK](https://github.com/jessed/guides/blob/main/Terraform/Execution.md)
+
+[NEXT](https://github.com/jessed/guides/blob/main/Terraform/example_1.md)
+
+[HOME](https://github.com/jessed/guides/blob/main/Terraform/README.md)

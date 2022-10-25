@@ -21,3 +21,9 @@ All of which are pre-requisites to creating a azurerm_linux_virtual_machine reso
 All of the resource configuration options (input) and attributes are shown below the examples.
 
 **NOTE**: When having a problem working with a Resource it is frequently helpful to take a look at pages that require that resource. The configuration of other Resources that require the one you are working with will include their own examples, and sometimes those examples enhance the examples provided in the primary Documentation page. This situation isn't common, but I have encountered it enough times that this is one of the first things I do when I have a Resource that repeatedly fails to deploy with some cryptic error message.
+
+[BACK](https://github.com/jessed/guides/blob/main/Terraform/Providers.md)
+
+[NEXT](https://github.com/jessed/guides/blob/main/Terraform/Configurations.md)
+
+[HOME](https://github.com/jessed/guides/blob/main/Terraform/README.md)

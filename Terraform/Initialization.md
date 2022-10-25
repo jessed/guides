@@ -7,3 +7,9 @@ When you run `terraform init` Terraform reads every file that ends with `.tf` in
 The first thing to understand here is that, other than the Terraform package itself, **nothing is manually downloaded**. Terraform will automatically download the components it requires when it is *initialized*. (I spent a humiliating amount of time figuring this out.) The second thing to understand is that Terraform initialization *is not the first step* in creating a new plan/deployment. Counter-intuitively, terraform initialization takes place after you've written all of the code and right before you actually try to run the plan to do something. 
 
 Note: Running `terraform init` does not verify that your code is without flaws or actually does anything at all. It *does* perform a basic syntax check, but that's it.
+
+[BACK](https://github.com/jessed/guides/blob/main/Terraform/Variables.md)
+
+[NEXT](https://github.com/jessed/guides/blob/main/Terraform/Execution.md)
+
+[HOME](https://github.com/jessed/guides/blob/main/Terraform/README.md)

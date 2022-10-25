@@ -100,3 +100,7 @@ resource "azurerm_resource_group" "rg" {
 ```
 output "out" { value = azurerm_resource_group.rg }
 ```
+
+[BACK](https://github.com/jessed/guides/blob/main/Terraform/example_3.md)
+
+[HOME](https://github.com/jessed/guides/blob/main/Terraform/README.md)

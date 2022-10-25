@@ -104,3 +104,10 @@ The module main.tf file defines the actions that will be taken by the module. Th
 output "out" { value = azurerm_resource_group.rg }
 ```
 The module outputs.tf file sends the outputs back to the main terraform execution. These outputs can then be used as input variables to other configuration blocks, including other modules. They can also be used in output blocks defined in the main directory to print the values after the Terraform Run completes. One very common example of this is printing the IP addresses of virtual-machines instantiated by the Terraform Run.
+
+
+[BACK](https://github.com/jessed/guides/blob/main/Terraform/example_2.md)
+
+[NEXT](https://github.com/jessed/guides/blob/main/Terraform/example_3.md)
+
+[HOME](https://github.com/jessed/guides/blob/main/Terraform/README.md)

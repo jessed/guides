@@ -79,3 +79,8 @@ And finally, the [GCP](https://registry.terraform.io/providers/hashicorp/google/
       zone                      = var.zone
     }
 
+[BACK](https://github.com/jessed/guides/blob/main/Terraform/README.md)
+
+[NEXT](https://github.com/jessed/guides/blob/main/Terraform/Registry.md)
+
+[HOME](https://github.com/jessed/guides/blob/main/Terraform/README.md)

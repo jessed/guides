@@ -6,6 +6,8 @@ This guide is intended to answer those very basic beginner questions, as well as
 # Organization
 This guide is broken into several small parts intended to let you skip the frustration of discovering them yourself. It definitely does not replace the [Terraform Documentation](https://www.terraform.io/intro), but as you'll discover if you click the link, this guide will reduce the time you need to "internalize" how to use Terraform.
 
+Sections 12-15 contains simple examples to illustrate how several Terraform concepts fit together. The code for each example is available not only on the example page, but in the corresponding .../example_*/ directory. 
+
 # Terrform
 As stated, this guide is a simple introduction to [Terraform](https://www.terraform.io/intro), and we will be going over several of the basic elements of a basic Terraform deployment. Those elements are:
 1. [tl;dr Quick Start](#tl;dr-Quick-Start)
@@ -60,3 +62,6 @@ As stated, this guide is a simple introduction to [Terraform](https://www.terraf
 
 ### [Example 4](https://github.com/jessed/guides/blob/main/Terraform/example_4.md)
 * Example usage of the ternary conditional and the [count](https://developer.hashicorp.com/terraform/language/meta-arguments/count) meta-argument
+
+
+[NEXT](https://github.com/jessed/guides/blob/main/Terraform/Providers.md)

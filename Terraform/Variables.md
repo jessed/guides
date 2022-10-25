@@ -53,3 +53,9 @@ The names of variables defined in *.tfvars or *.auto.tfvars files must be pre-de
     }
 
 Terraform would recognize a variable called "bigip" containing a nested variable called "use_paygo" with a string value of "my_ltm_01". If the placeholder variable is not present the variable(s) within the v_bigip.auto.tfvars file would not be included. You would also get a runtime error when Terraform attempts to import the variables define in the "v_bigip.auto.tfvars" file.
+
+[BACK](https://github.com/jessed/guides/blob/main/Terraform/Runs.md)
+
+[NEXT](https://github.com/jessed/guides/blob/main/Terraform/Initialization.md)
+
+[HOME](https://github.com/jessed/guides/blob/main/Terraform/README.md)

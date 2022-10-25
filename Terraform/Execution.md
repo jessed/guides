@@ -20,3 +20,9 @@ The scenario above occurs frequently enough that when dealing with certain publi
 terraform apply --auto-approve
 terraform destroy --auto-approve
 ```
+
+[BACK](https://github.com/jessed/guides/blob/main/Terraform/Initialization.md)
+
+[NEXT](https://github.com/jessed/guides/blob/main/Terraform/Tips_and_Tricks.md)
+
+[HOME](https://github.com/jessed/guides/blob/main/Terraform/README.md)
