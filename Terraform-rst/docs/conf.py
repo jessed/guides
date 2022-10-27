@@ -19,7 +19,6 @@ extensions = [
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
     'sphinx.ext.graphviz',
-    'sphinxcontrib.nwdiag',
     'sphinxcontrib.rackdiag',
     'sphinxcontrib.packetdiag',
     'sphinx.ext.todo'
@@ -31,7 +30,7 @@ todo_include_todos = True
 source_suffix = '.rst'
 
 # The master toctree document.
-#master_doc = 'index'
+master_doc = 'index'
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
