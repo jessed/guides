@@ -1,5 +1,5 @@
 ========================================
-# Example #3 - module creation and usage
+Example #3 - module creation and usage
 ========================================
 `Official Documentation <https://developer.hashicorp.com/terraform/tutorials/modules/module>`_
 ==============================================================================================
