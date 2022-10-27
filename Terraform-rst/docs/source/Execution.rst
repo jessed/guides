@@ -1,6 +1,6 @@
-=========
+===============================
 Execution: Plan, Apply, Destroy
-=========
+===============================
 `terraform plan <https://www.terraform.io/cli/commands/plan>`_ is used to perform an exhaustive check of your code, very similar to a 'dry-run' option. It will check the syntax, variable assignments, and attempt to identify circular references. <Circular references are when one resource depends on another, but that other object depends on the first one. Sometimes the dependency chain can include three or four objects, making identification of the circular reference difficult.>`_
 
 Performing a `terraform plan` is always recommended prior to actually applying the configuration, and will most likely become an internalized part of your deployment process.
@@ -13,36 +13,39 @@ For example, if you deployed a BIG-IP and a server in a previous 'terraform appl
 
 The scenario above occurs frequently enough that when dealing with certain public clouds I start out by running 'terraform destroy --auto-approve' three times, separated by semicolons so that the second and third calls will be occur immediately. Calling 'terraform destroy' when nothing is deployed doesn't cause problems because the 'destroy' command updates the 'terraform.state' file as each resource is destroyed, so subsequent calls only act on resources that are still deployed.
 ::
+
       terraform destroy --auto-approve; terraform destroy --auto-approve; terraform destroy --auto-approve
 
 With a Bash alias (see `Tips and Tricks`_) that command can be reduced to:
 ::
+
     tfda; tfda; tfda
 
 **NOTE**: The 'terraform apply' and 'terraform destroy' commands both require interactive approval before actually making any changes. To bypass the interactive approval use the '--auto-approve' command-line argument as shown here:
 ::
+
     terraform apply --auto-approve
     terraform destroy --auto-approve
 
 
-.. _Providers: Providers.rst
-.. _Registry: Registry.rst
-.. _Configurations: Configurations.rst
-.. _Resources: Resources.rst
-.. _Modules: Modules.rst
-.. _Runs: Runs.rst
-.. _Variables: Variables.rst
-.. _Initialization: Initialization.rst
-.. _Execution: Execution.rst
-.. _Tips and Tricks: Tips_and_Tricks.rst
-.. _Example 1: example_1.rst
-.. _Example 2: example_2.rst
-.. _Example 3: example_3.rst
-.. _Example 4: example_4.rst
+.. _Providers: Providers.html
+.. _Registry: Registry.html
+.. _Configurations: Configurations.html
+.. _Resources: Resources.html
+.. _Modules: Modules.html
+.. _Runs: Runs.html
+.. _Variables: Variables.html
+.. _Initialization: Initialization.html
+.. _Execution: Execution.html
+.. _Tips and Tricks: Tips_and_Tricks.html
+.. _Example 1: example_1.html
+.. _Example 2: example_2.html
+.. _Example 3: example_3.html
+.. _Example 4: example_4.html
 
-.. _NEXT: Tips_and_Tricks.rst
-.. _BACK: Initialization.rst
-.. _HOME: Index.rst
+.. _NEXT: Tips_and_Tricks.html
+.. _BACK: Initialization.html
+.. _HOME: Index.html
 
 `NEXT`_
 

@@ -41,7 +41,7 @@ The condition can be a simple comparison, as is shown in the example below, or i
 
 Notice that 'count' is *not* defined in the module variables.tf file. This is because 'count' is a meta-argument that applies to the module and is not provided to the module itself. Rather, it defines how many times the module is called. Also notice that the 'prefix' variable sent to the module is updated for each iteration using the 'count.index+1' syntax. This ensures that each resource-group has a unique name, but can be used in other ways.
 
-./vars.tf
+vars.tf
 ---------
 ::
 
@@ -50,7 +50,7 @@ Notice that 'count' is *not* defined in the module variables.tf file. This is be
     variable "single"     { default = false }
     variable "instances   { default = 3 }
 
-./main.tf
+main.tf
 ---------
 ::
 
@@ -71,7 +71,7 @@ Notice that 'count' is *not* defined in the module variables.tf file. This is be
       location              = var.location
     }
 
-./outputs.tf
+outputs.tf
 ------------
 ::
 
@@ -83,14 +83,14 @@ Notice that 'count' is *not* defined in the module variables.tf file. This is be
         rg_id       = module.rg.*.out.id
       }
 
-./modules/resource_group/variables.tf
+modules/resource_group/variables.tf
 -------------------------------------
 ::
 
     variable prefix     {}
     variable location   {}
 
-./modules/resource_group/main.tf
+modules/resource_group/main.tf
 --------------------------------
 ::
 
@@ -99,30 +99,30 @@ Notice that 'count' is *not* defined in the module variables.tf file. This is be
       location  = var.location
     }
 
-./modules/resource_group/outputs.tf
+modules/resource_group/outputs.tf
 -----------------------------------
 ::
 
     output "out" { value = azurerm_resource_group.rg }
 
 
-.. _Providers: Providers.rst
-.. _Registry: Registry.rst
-.. _Configurations: Configurations.rst
-.. _Resources: Resources.rst
-.. _Modules: Modules.rst
-.. _Runs: Runs.rst
-.. _Variables: Variables.rst
-.. _Initialization: Initialization.rst
-.. _Execution: Execution.rst
-.. _Tips and Tricks: Tips_and_Tricks.rst
-.. _Example 1: example_1.rst
-.. _Example 2: example_2.rst
-.. _Example 3: example_3.rst
-.. _Example 4: example_4.rst
+.. _Providers: Providers.html
+.. _Registry: Registry.html
+.. _Configurations: Configurations.html
+.. _Resources: Resources.html
+.. _Modules: Modules.html
+.. _Runs: Runs.html
+.. _Variables: Variables.html
+.. _Initialization: Initialization.html
+.. _Execution: Execution.html
+.. _Tips and Tricks: Tips_and_Tricks.html
+.. _Example 1: example_1.html
+.. _Example 2: example_2.html
+.. _Example 3: example_3.html
+.. _Example 4: example_4.html
 
-.. _BACK: example_3.rst
-.. _HOME: Index.rst
+.. _BACK: example_3.html
+.. _HOME: Index.html
 
 `BACK`_
 

@@ -22,7 +22,6 @@ extensions = [
     'sphinxcontrib.nwdiag',
     'sphinxcontrib.rackdiag',
     'sphinxcontrib.packetdiag',
-    'sphinxcontrib.blockdiag',
     'sphinx.ext.todo'
 ]
 
@@ -32,7 +31,7 @@ todo_include_todos = True
 source_suffix = '.rst'
 
 # The master toctree document.
-master_doc = 'index'
+#master_doc = 'index'
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -42,7 +41,7 @@ templates_path = ['_templates']
 
 
 # -- Options for HTML output
-html_theme = 'sphinx_rtd_theme'
+#html_theme = 'sphinx_rtd_theme'
 
 # -- Options for EPUB output
 epub_show_urls = 'footnote'

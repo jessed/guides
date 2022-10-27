@@ -7,10 +7,12 @@ Bash aliases
 ============
 Bash aliases are a way to create Bash commands that call actual programs. Bash aliases are defined as so:
 ::
+
     alias alias_name="command_to_run <arguments>"
 
 Aliases are usually placed in a file that will be sourced by Bash during initialization, such as the ~/.bashrc, ~/.profile, or ~/.bash_aliases. Here is the full contents of my ~/.terraform_aliases.bash file, which is source from ~/.bashrc during Bash initialization:
 ::
+
     alias tf='terraform'
     alias tfaa='terraform apply -auto-approve'
     alias tfda='terraform destroy -auto-approve'
@@ -19,16 +21,19 @@ Aliases are usually placed in a file that will be sourced by Bash during initial
 
 This command in my ~/.bashrc sources the ~/.terraform_aliases.bash file, ensuring that these aliases are present every time I open a terminal.
 ::
+
     source ~/.terraform_aliases.bash
 
 ***Note***: The aliases could just as easily be located directly in the ~/.bashrc rather than being sourced. I source the file rather than having them in ~/.bashrc because I have (literally) hundreds of aliases, and breaking them into separate files helps keep them organized.
 
 To use an alias you just type the alias name as if it were a command. To use the 'tfaa' alias I would enter the following on the command line:
 ::
+
     tfaa
 
 ...which would be the same as typing:
 ::
+
     terraform apply --auto-approve
 
 
@@ -38,10 +43,12 @@ Terraform keeps track of the state of configured resources using a file called `
 
 You can list the resources in the terraform.state file with:
 ::
+
     terraform state list
 
 Here is the output of 'terraform state list' for what is deployed by deploying `Example 4`_.
 ::
+
     $ tf state list
     module.rg[0].azurerm_resource_group.rg
     module.rg[1].azurerm_resource_group.rg
@@ -49,6 +56,7 @@ Here is the output of 'terraform state list' for what is deployed by deploying `
 
 You can also view details of each object by using 'terraform state show *object_name*, as shown here:
 ::
+
     $ tf state show module.rg`0 .azurerm_resource_group.rg
     # module.rg`0 .azurerm_resource_group.rg:
     resource "azurerm_resource_group" "rg" {
@@ -68,6 +76,7 @@ If you organize your lab naming scheme around a single *prefix* value that is in
 #. Azure will be deleting the Resource-Group and all of the objects it contains. It won't matter if this takes two minutes or an hour because...
 #. Terraform will believe nothing is deployed because there is no state file. You can immediately begin testing your most recent changes to the Terraform configuration because...
 #. With the new prefix none of the object names Terraform attempts to deploy will collide with existing objects.
+
   * Technically the concern regarding name collisions only applies to the resource-group name itself; however, there are a couple other objects that also require globally (or at least, organizationally) unique names, such as Log Analytics Workbooks and Storage Accounts.
 
 Using this trick will spare you a lot of time if you start to create Terraform Runs with many levels of dependencies.
@@ -77,7 +86,7 @@ Using this trick will spare you a lot of time if you start to create Terraform R
 **WARNING**: The corallary to the note above is that you should avoid deleting your terraform state file in all other cases; especially when working with AWS or GCP. I once had a corrupted deployment to AWS that caused the 'terraform destroy' command to fail due to an AWS error, so I had to track down every oject I had deployed with Terraform and delete them all manually. This was an incredible PITA. Deleting your terraform.state file without first running the 'terraform destroy' command will result in the same thing: to clean up your deployed resources you'll end up having to track all of them down to manually delete them. You have been warned.
 
 Selective apply / destroy
--------------------------
+=========================
 You can restrict Terraform to deploying or destroying specific objects by using the '--target=<resource_name>' command-line argument. This can be particularly useful if you have a large Run and are trying to debug or test one of the final resources being deployed. (i.e. trying to debug the cloud-init being used with BIG-IP). In those cases all of the time necessary to destroy, then re-deploy, all of the resources that the BIG-IP depends on is effectively wasted time - all you *need* to destroy and re-deploy is the BIG-IP itself. This is not an uncommon scenario, and the answer is the '--target=<name>' argument.
 
 To use --target=name you enter the terraform destroy or plan command like you normally would, but you add the '--target=' argument afterwards. For example, let's say my BIG-IP is deployed in a module called 'bigip'. I can destroy all of the objects related to that object alone by using the following command
@@ -96,28 +105,28 @@ To re-deploy I have two options:
 **NOTE**: According to Terraform the '--target=<name>' argument should only be used for debugging/testing.
 
 Terraform State file manipulation
----------------------------------
+=================================
 It is possible to manually remove objects from the state file without destroying them. This only comes up rarely, but if you find yourself in a position where it is important you can do this with the **terraform state rm <resource_name>** command
 
 
-.. _Providers: Providers.rst
-.. _Registry: Registry.rst
-.. _Configurations: Configurations.rst
-.. _Resources: Resources.rst
-.. _Modules: Modules.rst
-.. _Runs: Runs.rst
-.. _Variables: Variables.rst
-.. _Initialization: Initialization.rst
-.. _Execution: Execution.rst
-.. _Tips and Tricks: Tips_and_Tricks.rst
-.. _Example 1: example_1.rst
-.. _Example 2: example_2.rst
-.. _Example 3: example_3.rst
-.. _Example 4: example_4.rst
+.. _Providers: Providers.html
+.. _Registry: Registry.html
+.. _Configurations: Configurations.html
+.. _Resources: Resources.html
+.. _Modules: Modules.html
+.. _Runs: Runs.html
+.. _Variables: Variables.html
+.. _Initialization: Initialization.html
+.. _Execution: Execution.html
+.. _Tips and Tricks: Tips_and_Tricks.html
+.. _Example 1: example_1.html
+.. _Example 2: example_2.html
+.. _Example 3: example_3.html
+.. _Example 4: example_4.html
 
-.. _NEXT: example_1.rst
-.. _BACK: Execution.rst
-.. _HOME: Index.rst
+.. _NEXT: example_1.html
+.. _BACK: Execution.html
+.. _HOME: Index.html
 
 `NEXT`_
 

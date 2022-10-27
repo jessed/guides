@@ -1,9 +1,9 @@
-===========
+=========
 Providers
-===========
+=========
 
 Overview
-===========
+========
 A `Terraform Provider <https://www.terraform.io/docs/glossary#terraform-provider>`_ is a plugin that Terraform calls in order to communicate with the service or resource being configured. For example, in order to configure Azure resources Terraform uses the `azurerm <https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs>`_ provider. Providers are *usually* written by the organization that provides the product being configured, though that is not always the case. For example, the `BIG-IP <https://registry.terraform.io/providers/F5Networks/bigip/1.15.2>`_ is provided by F5, but the Azure provider is provided directly by Hashicorp (the same company that created Terraform).
 
 The provider(s) required for the Terraform Run are identified by Terraform when you run a ``terraform init``, and are *automatically* downloaded. There are a two parts to provider configuration. The first declares that the Provider is required, and the second is the actual Provider configuration.
@@ -13,6 +13,7 @@ Provider Declaration
 --------------------
 Here is an example of the Provider declaration:
 ::
+
     terraform {
       required_providers {
         azurerm = { version = "3.14.0" }
@@ -22,14 +23,16 @@ Here is an example of the Provider declaration:
 The 'terraform' block is not limited on only one Provider; more can be defined depending on what your Terraform Run requires. Here are a few example Provider configurations:
 
 `Azure <https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs>`_
----------
+--------------------------------------------------------------------------------
 
 The *Provider* configuration blocks define changes to the default provider behavior. Even without any changes each provider must still have a configuration block. Here is a default configuration block for the Azure Provider:
 ::
+
     provider "azurerm" { }
 
 Provider configuration blocks can be much more complicated. Here is a configuration block for the Azure subscriber that includes a few modifications to the default behavior:
 ::
+
     provider "azurerm" {
       features {
         virtual_machine {
@@ -50,9 +53,10 @@ Provider configuration blocks can be much more complicated. Here is a configurat
 
 
 `AWS  <https://registry.terraform.io/providers/hashicorp/aws/3.27.0/docs>`_
----------
+---------------------------------------------------------------------------
 The Terraform AWS Provider configuration block shown here pulls the credentials and profile from local values (variables), and defines the default region for operations.
 ::
+
     terraform {
       required_providers {
         aws = {
@@ -72,9 +76,10 @@ Notice that even the terraform configuration block differs from the Azure exampl
 
 
 `GCP <https://registry.terraform.io/providers/hashicorp/google/latest/docs>`_
----------
+-----------------------------------------------------------------------------
 And finally, the GCP Provider.
 ::
+
     terraform {
       required_providers {
         google = {
@@ -89,24 +94,24 @@ And finally, the GCP Provider.
       zone                      = var.zone
     }
 
-.. _Providers: Providers.rst
-.. _Registry: Registry.rst
-.. _Configurations: Configurations.rst
-.. _Resources: Resources.rst
-.. _Modules: Modules.rst
-.. _Runs: Runs.rst
-.. _Variables: Variables.rst
-.. _Initialization: Initialization.rst
-.. _Execution: Execution.rst
-.. _Tips and Tricks: Tips_and_Tricks.rst
-.. _Example 1: example_1.rst
-.. _Example 2: example_2.rst
-.. _Example 3: example_3.rst
-.. _Example 4: example_4.rst
+.. _Providers: Providers.html
+.. _Registry: Registry.html
+.. _Configurations: Configurations.html
+.. _Resources: Resources.html
+.. _Modules: Modules.html
+.. _Runs: Runs.html
+.. _Variables: Variables.html
+.. _Initialization: Initialization.html
+.. _Execution: Execution.html
+.. _Tips and Tricks: Tips_and_Tricks.html
+.. _Example 1: example_1.html
+.. _Example 2: example_2.html
+.. _Example 3: example_3.html
+.. _Example 4: example_4.html
 
-.. _NEXT: Registry.rst
-.. _BACK: Index.rst
-.. _HOME: Index.rst
+.. _NEXT: Registry.html
+.. _BACK: Index.html
+.. _HOME: Index.html
 
 `NEXT`_
 

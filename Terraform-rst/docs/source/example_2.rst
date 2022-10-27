@@ -1,6 +1,6 @@
-=========
+==========================
 Example #2 - object output
-=========
+==========================
 The following example illustrates the Terraform code to:
 
 1. Define a variable called 'lab_prefix'
@@ -54,24 +54,24 @@ The following example illustrates the Terraform code to:
 
 **Note**: Notice the use of the `format <https://www.terraform.io/language/functions/format>`_ function to build a dynamic local value using the variable name.
 
-.. _Providers: Providers.rst
-.. _Registry: Registry.rst
-.. _Configurations: Configurations.rst
-.. _Resources: Resources.rst
-.. _Modules: Modules.rst
-.. _Runs: Runs.rst
-.. _Variables: Variables.rst
-.. _Initialization: Initialization.rst
-.. _Execution: Execution.rst
-.. _Tips and Tricks: Tips_and_Tricks.rst
-.. _Example 1: example_1.rst
-.. _Example 2: example_2.rst
-.. _Example 3: example_3.rst
-.. _Example 4: example_4.rst
+.. _Providers: Providers.html
+.. _Registry: Registry.html
+.. _Configurations: Configurations.html
+.. _Resources: Resources.html
+.. _Modules: Modules.html
+.. _Runs: Runs.html
+.. _Variables: Variables.html
+.. _Initialization: Initialization.html
+.. _Execution: Execution.html
+.. _Tips and Tricks: Tips_and_Tricks.html
+.. _Example 1: example_1.html
+.. _Example 2: example_2.html
+.. _Example 3: example_3.html
+.. _Example 4: example_4.html
 
-.. _NEXT: example_3.rst
-.. _BACK: example_1.rst
-.. _HOME: Index.rst
+.. _NEXT: example_3.html
+.. _BACK: example_1.html
+.. _HOME: Index.html
 
 `NEXT`_
 

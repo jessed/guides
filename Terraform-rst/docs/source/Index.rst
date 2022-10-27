@@ -1,9 +1,9 @@
 ==================================
 Day 0 Beginners Guide to Terraform
 ==================================
-------------
-# Motivation
-------------
+----------
+Motivation
+----------
 The most frustrating aspect of Terraform is the "Day One" learning curve. When first starting out most of the examples I found (by which I mean: every single one), seemed to assume that you understand the basic operation of Terraform and focused on the more complex use-cases. The problem with that is that I held certain misconceptions that none of those guides actually addressed. The most significant one was "How do I download the package (provider) to interact with a specific service?". The answer is "You don't", but all of the guides I found seemed to assume that knowledge and didn't address the topic. In hindsight I understand why, but it's been over two years and I still remember the intense frustration of that first day working with Terraform (TF).
 
 This guide is intended to answer those very basic beginner questions, as well as walk you through the creation of your first (extremely) simple Terraform Run so you can see how the various pieces for together.
@@ -19,21 +19,6 @@ Sections 12-15 contains simple examples to illustrate how several Terraform conc
 Terrform
 --------
 As stated, this guide is a simple introduction to `Terraform <https://www.terraform.io/intro>`_, and we will be going over several of the basic elements of a basic Terraform deployment. Those elements are:
-
-.. _Providers: Providers.rst
-.. _Registry: Registry.rst
-.. _Configurations: Configurations.rst
-.. _Resources: Resources.rst
-.. _Modules: Modules.rst
-.. _Runs: Runs.rst
-.. _Variables: Variables.rst
-.. _Initialization: Initialization.rst
-.. _Execution: Execution.rst
-.. _Tips and Tricks: Tips_and_Tricks.rst
-.. _Example 1: example_1.rst
-.. _Example 2: example_2.rst
-.. _Example 3: example_3.rst
-.. _Example 4: example_4.rst
 
 #. `tl;dr Quick Start`_
 #. `Providers`_
@@ -74,7 +59,7 @@ tl;dr Quick Start
    * Deploy the configuration.
    * Communication/authentication/authorization issues will be caught at this stage.
    * Failures will *not* be rolled back automatically.
-5. ``terraform destroy``
+5. ``terraform destroy [--auto-approve]``
 
    * Destroy/delete deployed objects
    * Reverses the order of operations determined at the time of deployment
@@ -84,26 +69,43 @@ Examples
 --------
 
 `Example 1`_
------------
+------------
 * Create variable
 * Create local value using variable value
 * Create *null_resource* to call a bash command
 * Create Output blocks to print the values of the variable and local value
 
 `Example 2`_
------------
+------------
 * Create variable
 * Create local values containing several embedded values using the variable to build the names
 * Create Output blocks to print the variable and local values
 
 `Example 3`_
------------
+------------
 * Create and run a module that creates an Azure resource-group
 * Create output blocks that print the values of the module
 
 `Example 4`_
------------
+------------
 * Example usage of the ternary conditional and the `count <https://developer.hashicorp.com/terraform/language/meta-arguments/count>`_ meta-argument
 
-.. _NEXT: Providers.rst
+.. _Providers: Providers.html
+.. _Registry: Registry.html
+.. _Configurations: Configurations.html
+.. _Resources: Resources.html
+.. _Modules: Modules.html
+.. _Runs: Runs.html
+.. _Variables: Variables.html
+.. _Initialization: Initialization.html
+.. _Execution: Execution.html
+.. _Tips and Tricks: Tips_and_Tricks.html
+.. _Example 1: example_1.html
+.. _Example 2: example_2.html
+.. _Example 3: example_3.html
+.. _Example 4: example_4.html
+
+.. _NEXT: Providers.html
+
 `NEXT`_
+

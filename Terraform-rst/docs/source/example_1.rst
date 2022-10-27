@@ -1,6 +1,6 @@
-=========
+========================================
 Example #1 - Simple variables and output
-=========
+========================================
 The following example shows the Terraform code to:
 
 #. Define an input variable called 'prefix'
@@ -34,9 +34,9 @@ The following example shows the Terraform code to:
 
 **NOTE**: Terraform Runs that only involve built-in providers like *null-resource* do not require *terraform* or *provider* blocks. This makes it very easy to create trivial runs for the purpose of testing Terraform syntax and behavior. The example above was something I wrote when I first started using Terraform to test the use of a `null-resource`_.
 
---------------
+---
 Lab
---------------
+---
 Now we're going to run through the one and only lab including with this beginners guide. This is simply to demonstrate the expected output of each of the main terraform commands that you'll use when creating yoru own Runs.  To run this example you can either use the code in the ./example_1/ directory, which matches the example above, or create a new directory and copy/paste the example above into a file called *main.tf*. 
 
 terraform init
@@ -171,24 +171,24 @@ If you look in the directory now you'll see that the 'terraform.state' file is s
 
 
 
-.. _Providers: Providers.rst
-.. _Registry: Registry.rst
-.. _Configurations: Configurations.rst
-.. _Resources: Resources.rst
-.. _Modules: Modules.rst
-.. _Runs: Runs.rst
-.. _Variables: Variables.rst
-.. _Initialization: Initialization.rst
-.. _Execution: Execution.rst
-.. _Tips and Tricks: Tips_and_Tricks.rst
-.. _Example 1: example_1.rst
-.. _Example 2: example_2.rst
-.. _Example 3: example_3.rst
-.. _Example 4: example_4.rst
+.. _Providers: Providers.html
+.. _Registry: Registry.html
+.. _Configurations: Configurations.html
+.. _Resources: Resources.html
+.. _Modules: Modules.html
+.. _Runs: Runs.html
+.. _Variables: Variables.html
+.. _Initialization: Initialization.html
+.. _Execution: Execution.html
+.. _Tips and Tricks: Tips_and_Tricks.html
+.. _Example 1: example_1.html
+.. _Example 2: example_2.html
+.. _Example 3: example_3.html
+.. _Example 4: example_4.html
 
-.. _NEXT: example_2.rst
-.. _BACK: Tips_and_Tricks.rst
-.. _HOME: Index.rst
+.. _NEXT: example_2.html
+.. _BACK: Tips_and_Tricks.html
+.. _HOME: Index.html
 
 `NEXT`_
 
