@@ -2,7 +2,6 @@
 Example #3 - module creation and usage
 ========================================
 `Official Documentation <https://developer.hashicorp.com/terraform/tutorials/modules/module>`_
-==============================================================================================
 
 **NOTE**: In order to execute this example you must have access to the Azure CLI and it must be authenticated to work with Azure.
 
