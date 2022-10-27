@@ -13,14 +13,9 @@ version = '0.1.0'
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.doctest',
-    'sphinx.ext.todo',
     'sphinx.ext.coverage',
     'sphinx.ext.mathjax',
-    'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
-    'sphinx.ext.graphviz',
-    'sphinxcontrib.rackdiag',
-    'sphinxcontrib.packetdiag',
     'sphinx.ext.todo'
 ]
 
