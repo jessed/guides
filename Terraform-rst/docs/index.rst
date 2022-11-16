@@ -3,7 +3,7 @@ Day 0 Beginners Guide to Terraform
 ==================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
    source/Index.rst
