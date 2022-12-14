@@ -3,6 +3,13 @@ Tips and Tricks
 ===============
 Terraform has a few execution quirks that can become bothersome with frequent usage. One example is that both 'terraform apply' and 'terraform destroy' require an interactive approval. Bypassing this is possible with the use of the '--auto-approve' argument, but that's a lot to be typing everytime you want to perform or clean-up a terraform run. (And, being exceptionally lazy, I don't want to be typing that much every time I run a terraform command.) So what follows are the Bash aliases I use with terraform, as well as a few other things I do to a) simplify terraform usage and b) diagnose problems with terraform runs.
 
+#. :ref: `Bash aliases`
+#. :ref: `Terraform State`
+#. :ref: `Azure Terraform State Trick`
+#. :ref: `Selective apply / destroy`
+#. :ref: `Terraform State file manipulation`
+#. :reg: `Using Terraform with Git`
+
 Bash aliases
 ============
 Bash aliases are a way to create Bash commands that call actual programs. Bash aliases are defined as so:
@@ -24,7 +31,7 @@ This command in my ~/.bashrc sources the ~/.terraform_aliases.bash file, ensurin
 
     source ~/.terraform_aliases.bash
 
-***Note***: The aliases could just as easily be located directly in the ~/.bashrc rather than being sourced. I source the file rather than having them in ~/.bashrc because I have (literally) hundreds of aliases, and breaking them into separate files helps keep them organized.
+**NOTE**: The aliases could just as easily be located directly in the ~/.bashrc rather than being sourced. I source the file rather than having them in ~/.bashrc because I have (literally) hundreds of aliases, and breaking them into separate files helps keep them organized.
 
 To use an alias you just type the alias name as if it were a command. To use the 'tfaa' alias I would enter the following on the command line:
 ::
@@ -89,7 +96,7 @@ Selective apply / destroy
 =========================
 You can restrict Terraform to deploying or destroying specific objects by using the '--target=<resource_name>' command-line argument. This can be particularly useful if you have a large Run and are trying to debug or test one of the final resources being deployed. (i.e. trying to debug the cloud-init being used with BIG-IP). In those cases all of the time necessary to destroy, then re-deploy, all of the resources that the BIG-IP depends on is effectively wasted time - all you *need* to destroy and re-deploy is the BIG-IP itself. This is not an uncommon scenario, and the answer is the '--target=<name>' argument.
 
-To use --target=name you enter the terraform destroy or plan command like you normally would, but you add the '--target=' argument afterwards. For example, let's say my BIG-IP is deployed in a module called 'bigip'. I can destroy all of the objects related to that object alone by using the following command
+To use --target=name you enter the terraform destroy or plan command like you normally would, but you add the '--target=' argument afterwards. For example, let's say my BIG-IP is deployed in a module called 'bigip'. I can destroy all of the objects related to that object alone by using the following command:
 ::
 
     terraform destroy --auto-approve --target=module.bigip
@@ -107,6 +114,25 @@ To re-deploy I have two options:
 Terraform State file manipulation
 =================================
 It is possible to manually remove objects from the state file without destroying them. This only comes up rarely, but if you find yourself in a position where it is important you can do this with the **terraform state rm <resource_name>** command
+
+Using Terraform with Git
+========================
+It is extremely common to use Git to provide source control for Terraform configurations. Entire DevOps ecosystems have been created around this relationship, and I would be remiss to not include a section on some best-practices related to the **.gitignore** file.
+
+As you almost certainly know, the ``.gitignore`` file is used to exclude files from being included by git, and there are some files you really don't want included in your git repository. I've provided a list of these files below and urge you to use the ``.gitignore`` file to exclude them.
+
+* .terraform/
+   * Directory containing the dowloaded Providers and files pertaining to the modules defined in your Terraform configuration.
+   * Add the following to .gitignore: ``.terraform*``
+* .terraform.lock.hcl
+   * File containing a list of the downloaded Providers and the hashes associated with each
+   * Add the following to .gitignore: ``.terraform*``
+      * ``.terraform*`` excludes both the lock file and the ``.terraform/`` directory
+* .terraform.tfstate & .terraform.tfstate.backup
+   * File containing the current state of any resources deployed by Terraform (see above)
+   * Add the following to .gitignore: ``terraform.tfstate*``
+      * Excludes both the ``terraform.tfstate`` and the ``terraform.tfstate.backup`` files.
+
 
 
 .. _Providers: Providers.html

@@ -8,6 +8,7 @@ A `Terraform Provider <https://www.terraform.io/docs/glossary#terraform-provider
 
 The provider(s) required for the Terraform Run are identified by Terraform when you run a ``terraform init``, and are *automatically* downloaded. There are a two parts to provider configuration. The first declares that the Provider is required, and the second is the actual Provider configuration.
 
+
 --------------------
 Provider Declaration
 --------------------
@@ -24,6 +25,8 @@ The 'terraform' block is not limited on only one Provider; more can be defined d
 
 `Azure <https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs>`_
 --------------------------------------------------------------------------------
+
+**NOTE**: Along with identifying and downloading the Provider, ``terraform init`` will also ``upgrade`` the provider if a newer one is available and the specific version isn't specified in the provider declaration. The example above defines the specific version of the provider to be used, so the release of newer versions will be ignored. That said, a common approach is to use a version statement similar to ``version **~>** "3.14.0"``, and that syntax will result in the Provider being automatically upgraded whenever a new version is available. If that newer version includes changes to the options/arguments in any of the resources you are using you may find yourself having to refactor portions of your Terraform configuration to adjust to the new options. The best practice would be to use '=' to restrict the Provider to the specific version you are writing your code for. You can then allow the Provider to be upgraded when it is convenient for you, rather than potentially having to update a bunch of code that is unrelated to whatever you are actually trying to work on. 
 
 The *Provider* configuration blocks define changes to the default provider behavior. Even without any changes each provider must still have a configuration block. Here is a default configuration block for the Azure Provider:
 ::
