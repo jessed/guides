@@ -8,7 +8,7 @@ Terraform has a few execution quirks that can become bothersome with frequent us
 #. :ref:`Azure Terraform State Trick`
 #. :ref:`Selective apply / destroy`
 #. :ref:`Terraform State file manipulation`
-#. :reg:`Using Terraform with Git`
+#. :ref:`Using Terraform with Git`
 
 Bash aliases
 ============
@@ -126,12 +126,21 @@ As you almost certainly know, the ``.gitignore`` file is used to exclude files f
    * Add the following to .gitignore: ``.terraform*``
 * .terraform.lock.hcl
    * File containing a list of the downloaded Providers and the hashes associated with each
-   * Add the following to .gitignore: ``.terraform*``
-      * ``.terraform*`` excludes both the lock file and the ``.terraform/`` directory
+   * Add the following to .gitignore: *.terraform\**
+      * *.terraform\** excludes both the *.terraform.lock.hcl* file and the *.terraform/* directory
 * .terraform.tfstate & .terraform.tfstate.backup
    * File containing the current state of any resources deployed by Terraform (see above)
    * Add the following to .gitignore: ``terraform.tfstate*``
-      * Excludes both the ``terraform.tfstate`` and the ``terraform.tfstate.backup`` files.
+      * Excludes both the *terraform.tfstate* and the *terraform.tfstate.backup* files.
+
+More complex Terraform configurations might include an output directory for post-procesing template files, as well as a directory within which those template files might be stored. I names those directories *work_tmp* and *templates*, respectively. The *templates* directory should be included in a Git repository; however, the directory containing the post-processing versions of those templates should not, so I add that directory to my .gitignore.
+
+The complete list of .gitignore additions would be:
+::
+
+    .terraform*
+    .terraform.tfstate*
+    work_tmp/
 
 
 
